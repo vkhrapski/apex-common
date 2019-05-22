@@ -85,24 +85,6 @@ public class Utilities {
         return formatExtentions;
     } private set;}
 
-
-    public static Map<Id, List<sObject>> getParentIdToChildrenMapping(List<sObject> childrenRecords, String fieldName) {
-        Map<Id, List<sObject>> mappingResult = new Map<Id, List<sObject>>();
-        for (sObject sObjectRecord : childrenRecords)
-            {
-                Id parentId = (Id)sObjectRecord.get(fieldName);
-                if (parentId != null)
-                {
-                    if (mappingResult.get(parentId) == null)
-                    {
-                        mappingResult.put(parentId, new List<sObject>());
-                    }
-                    mappingResult.get(parentId).add(sObjectRecord);
-                }
-            }
-        return mappingResult;
-    }
-
     /*******************************************************************************************************
     
         Picklist extentions.
